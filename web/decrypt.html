@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>D1v1der 3ncrypt10n V1.5 - AP</TITLE>
+
+<style type="text/css">
+body{
+   background-color: 000000;
+   color: FFFFFF;
+}
+
+a{text-decoration: none;}
+a:link {color: FFFFFF}
+a:visited {color: FFFFFF}
+a:hover {color: blue}
+a:active {color: FFFFFF}
+
+textarea{
+   border-width: 1px;
+   border-style: solid;
+   border-color: FFFFFF;
+   background-color: transparent;
+   color: FFFFFF;
+   width: 350px;
+   height: 150px;
+}
+
+input{
+   border-width: 1px;
+   border-style: solid;
+   border-color: FFFFFF;
+   background-color: transparent;
+   color: FFFFFF;
+}
+
+#MnBox{
+   border-width: 1px;
+   border-style: solid;
+   border-color: FFFFFF;
+   width: 400px;
+}
+</style>
+
+<script language="javascript" type="text/javascript">
+
+//Amnite Productions
+//New Ideas To Old Problems
+
+function AcChars(){
+   alert("Converted Characters:\n" +
+   "   A-Z\n" +
+   "   a-z\n" +
+   "   0-9\n" +
+   "   .!?\n" +
+   "   <>/&#\n" +
+   "   *All Characters Usable Just Not Converted.\n\n");
+}
+
+function Help(){
+   alert("This code is meant only to encrypt information placed within the designated <div> tag. Scripts, CSS, and anything other than HTML or text have not been tested.\n" +
+   "If having problems please check that you have used the correct <div> id. Then check and make sure you have the correct bookmark code. If a problem persists please contact me.");
+}
+
+function About(){
+   alert("D1v1der 3ncrypt10n V1.5\n" +
+   "Created By: Amnite\n" +
+   "Created On: 08/29/09\n\n" +
+   "To Be Used Only By Permission From Amnite Or Any Of His Underlying Personalities");
+}
+
+function Clear(){
+   document.getElementById("CdInput").value = "Please Enter Code...";
+   document.getElementById("CdOutput").value = "Encrypted Code...";
+}
+
+function Encrypt(){
+   var UnEncCd = document.getElementById("CdInput").value;
+   var EncCd = "";
+   var CdComp
+   var i,j;
+   var LtrArr = new Array("v","?","b","R","5","H","q","k","@","O","e","A","f","x","T","s","M","h","W","2","n","g","E","J","t","l","$","N","V","3"," ","Q","d","8","G","/",".","4","U","o","p","y","B","X","w","K","0","c","j","D","a","%","P","!","r","1","m","F","6","C","i","7","u","I","Z","S","9","z","L","Y","#");
+
+   var EncArr = new Array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9",".","!","?","<",">","/","&","#"," ");
+
+   for(i=0;i<UnEncCd.length;i++){
+      
+      CdComp = UnEncCd.charAt(i);
+
+      for(j=0;j<=70;j++){
+
+         if(CdComp == LtrArr[j]){
+            EncCd += EncArr[j];
+            j = 70;
+         }
+
+         else if(CdComp != LtrArr && j == 70){
+            EncCd += UnEncCd.charAt(i);
+         }
+      }
+   }
+   
+   document.getElementById("CdOutput").value = EncCd;
+
+}
+
+function CrtBM(){
+
+   var DivNm = prompt("Enter The Divider Id Your Code Will Be Located In","");
+
+   alert("javascript:var EncDiv = document.getElementById('"+DivNm+"').innerHTML;var UnEncDiv = '';var i,j;var LtrComp;var EncArr = new Array('v','?','b','R','5','H','q','k','@','O','e','A','f','x','T','s','M','h','W','2','n','g','E','J','t','l','$','N','V','3',' ','Q','d','8','G','/','.','4','U','o','p','y','B','X','w','K','0','c','j','D','a','%','P','!','r','1','m','F','6','C','i','7','u','I','Z','S','9','z','L','Y','#');var UnEncArr = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','.','!','?','<','>','/','&','#',' ');for(i=0;i<EncDiv.length;i++){LtrComp = EncDiv.charAt(i);for(j=0;j<=70;j++){if(LtrComp == EncArr[j]){UnEncDiv += UnEncArr[j];j = 70;}else if(LtrComp != EncArr && j == 70){UnEncDiv += EncDiv.charAt(i);}}}document.getElementById('"+DivNm+"').innerHTML = UnEncDiv;void(null);")
+
+}
+
+</script>
+
+</HEAD>
+<BODY>
+
+<center>
+   <div id="MnBox">
+
+      <h2>RSA Encryption and Decryption</h2>
+      <hr>
+      <a href="#" onClick="AcChars();">Acceptable Characters</a>&nbsp|&nbsp<a href="#" onClick="Help();">Help</a>&nbsp|&nbsp<a href="#" onClick="About();">About</a>
+
+      <textarea id="CdInput"></textarea><br><br>   
+      
+      <input type="button" value="Encrypt-->" onClick="Encrypt();"></input>&nbsp&nbsp<input type="button" value="cl3ar" onClick="Clear();"></input>&nbsp&nbsp<br><br>
+
+      <textarea id="CdOutput">Encrypted Code...</textarea><br>
+
+   </div><br>
+
+   <p id=""></p>
+</center>
+
+</BODY>
+</HTML>
